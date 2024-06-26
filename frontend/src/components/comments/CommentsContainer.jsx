@@ -3,15 +3,16 @@ import { getCommentsData } from '../../data/comments'
 import CommentForm from './CommentForm'
 import Comment from './Comment';
 
-const CommentsContainer = ({className}) => {
+const CommentsContainer = ({className,logginedUserId}) => {
     const [comments,setComments] = useState([]);
     const mainComments = comments.filter((comment)=> comment.parent === null)
+    const [affectedComment, setaffectedComment]= useState(null)
 
     console.log(comments);
     useEffect(()=> {
     
         // const getComment = ()=>{}
-        // getComment
+        // getComment     Can do this also
 
         (async()=>{
             const commentData = await getCommentsData();
@@ -41,7 +42,7 @@ const CommentsContainer = ({className}) => {
          <CommentForm btnLabel="Send" formSubmitHandler={(value)=> addCommentHandler(value)}/>
             <div className='space-y-4 mt-8'>
                 {mainComments.map((comment)=>(
-                  <Comment />
+                  <Comment comment={comment} logginedUserId={logginedUserId} />
                 ))}    
             </div>
   </div>
