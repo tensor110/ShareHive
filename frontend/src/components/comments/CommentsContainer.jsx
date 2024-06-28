@@ -6,7 +6,7 @@ import Comment from './Comment';
 const CommentsContainer = ({className,logginedUserId}) => {
     const [comments,setComments] = useState([]);
     const mainComments = comments.filter((comment)=> comment.parent === null)
-    const [affectedComment, setaffectedComment]= useState(null)
+    const [affectedComment, setAffectedComment]= useState(null)
 
     console.log(comments);
     useEffect(()=> {
@@ -36,7 +36,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
      setComments((curState)=>{
         return [newComment, ...curState];
      });
-     setaffectedComment(null);
+     setAffectedComment(null);
     };
 
     const updateCommentHandler = (value, commentId) =>{
@@ -47,7 +47,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
             return comment;
          });
          setComments(updatedComments);
-         setaffectedComment(null);
+         setAffectedComment(null);
     }
     const deleteCommentHandler = (commentId) => {
         // console.log("Deleting comment with ID:", commentId); // Debugging line
@@ -55,7 +55,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
         setComments(updatedComments);
     };
 
-    const getRepliesHandler = (commentsId)=>{
+    const getRepliesHandler = (commentId)=>{
         return comments.filter((comment)=> comment.parent === commentId)
         .sort((a,b)=>{
             return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
@@ -72,7 +72,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
                    key={comment._id} 
                   comment={comment} logginedUserId={logginedUserId} 
                    affectedComment={affectedComment} 
-                   setaffectedComment={setaffectedComment} 
+                   setAffectedComment={setAffectedComment} 
                    addComment={addCommentHandler}
                    updateComment={updateCommentHandler}
                    deleteComment={deleteCommentHandler}
