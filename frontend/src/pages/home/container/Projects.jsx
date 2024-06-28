@@ -1,5 +1,6 @@
 import React from 'react'
 import {FaArrowRight} from "react-icons/fa"
+import { NavLink } from 'react-router-dom'
 import ProjectsCard from '../../../components/ProjectsCard.jsx'
 
 const Articles = () => {
@@ -12,7 +13,9 @@ const Articles = () => {
        
         </div>
         <button className='mx-auto flex items-center gap-x-2 font-bold text-primary border-2 border-primary px-6 py-3 rounded-lg hover:bg-[#1565d8] hover:text-white '>
-          <span>More Projects</span>
+          <NavLink to='/projects'>
+            <span>More Projects</span>
+          </NavLink>
           <FaArrowRight className='w-3 h-3' />
         </button>
     </section>
