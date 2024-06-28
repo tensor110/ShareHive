@@ -8,7 +8,7 @@ const App = () => {
     <div className='App font-opensans '>
       <Routes>
         <Route index path='/' element={<HomePage />} />
-        <Route path='/project/:id' element={<ProjectDetailPage />} />
+        <Route path='/project' element={<ProjectDetailPage />} />
         </Routes>
         
     </div>
