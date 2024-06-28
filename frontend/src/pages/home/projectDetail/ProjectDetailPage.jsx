@@ -9,8 +9,8 @@ import CommentsContainer from '../../../components/comments/CommentsContainer'
 const breadCrumbsdata = [
 
   {name: "Home", link: "/"},
-  {name: "Blog", link: "/blog"},
-  {name: "Project title", link: "/blog/1"},
+  {name: "Projects", link: "/Projects"},
+  {name: "Project title", link: "/Projects/1"},
 
 ]
 

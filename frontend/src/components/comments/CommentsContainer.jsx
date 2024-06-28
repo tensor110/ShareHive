@@ -12,7 +12,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
     useEffect(()=> {
     
         // const getComment = ()=>{}
-        // getComment     Can do this also
+        // getComment()     Can do this also
 
         (async()=>{
             const commentData = await getCommentsData();
@@ -36,13 +36,48 @@ const CommentsContainer = ({className,logginedUserId}) => {
      setComments((curState)=>{
         return [newComment, ...curState];
      });
+     setaffectedComment(null);
     };
+
+    const updateCommentHandler = (value, commentId) =>{
+         const updatedComments = comments.map((comment) => {
+            if(comment._id === commentId){
+                return {...comment, desc:value};
+            }
+            return comment;
+         });
+         setComments(updatedComments);
+         setaffectedComment(null);
+    }
+    const deleteCommentHandler = (commentId) => {
+        // console.log("Deleting comment with ID:", commentId); // Debugging line
+        const updatedComments = comments.filter((comment) => comment._id !== commentId);
+        setComments(updatedComments);
+    };
+
+    const getRepliesHandler = (commentsId)=>{
+        return comments.filter((comment)=> comment.parent === commentId)
+        .sort((a,b)=>{
+            return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        
+        })
+    };
+
   return (
     <div className= {`${className}`}> 
          <CommentForm btnLabel="Send" formSubmitHandler={(value)=> addCommentHandler(value)}/>
             <div className='space-y-4 mt-8'>
                 {mainComments.map((comment)=>(
-                  <Comment comment={comment} logginedUserId={logginedUserId} />
+                  <Comment
+                   key={comment._id} 
+                  comment={comment} logginedUserId={logginedUserId} 
+                   affectedComment={affectedComment} 
+                   setaffectedComment={setaffectedComment} 
+                   addComment={addCommentHandler}
+                   updateComment={updateCommentHandler}
+                   deleteComment={deleteCommentHandler}
+                  commentReplies ={getRepliesHandler(comment._id)}
+                   />
                 ))}    
             </div>
   </div>
