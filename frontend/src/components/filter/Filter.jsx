@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox, CheckboxGroup, Radio, RadioGroup } from "@nextui-org/react";
+import { Checkbox, CheckboxGroup} from "@nextui-org/react";
 
 function Filter({ categories, difficulties, setCategories, setDifficulties }) {
   const handleCategoryChange = (values) => {

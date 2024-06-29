@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../../components/Header'
-import Filter from './Filter'
-import FilteredProjectsList from './FilteredProjectsList'
+import FilteredProjectsList from '../../components/filter/FilteredProjectsList'
 
 function MainPage() {
   return (
