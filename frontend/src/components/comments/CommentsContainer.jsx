@@ -3,7 +3,7 @@ import { getCommentsData } from '../../data/comments'
 import CommentForm from './CommentForm'
 import Comment from './Comment';
 
-const CommentsContainer = ({className}) => {
+const CommentsContainer = ({className,logginedUserId}) => {
     const [comments,setComments] = useState([]);
     const mainComments = comments.filter((comment)=> comment.parent === null)
 
