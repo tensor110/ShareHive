@@ -79,12 +79,15 @@ Comment.propTypes = {
               
            </div>
            {isReplying && (
-            <> <CommentForm 
+             <CommentForm 
             btnLabel="Reply" 
-            formSubmitHandler={(value)=> addComment(value,repliedCommentId,replyOnUserId)} 
+            formSubmitHandler={(value)=> addComment(value,repliedCommentId,replyOnUserId)
+            } 
             formCancelHandler={()=> setAffectedComment(null)}
             />
-            <div>
+            )}
+            {commentReplies.length > 0 && (
+              <div>
               {commentReplies.map((reply)=>(
                 <Comment 
                 key={reply._id} 
@@ -100,8 +103,7 @@ Comment.propTypes = {
                 />
               ))}
             </div>
-            </>
-           )}
+            )}
          </div>
        </div>
   )

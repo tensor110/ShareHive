@@ -22,7 +22,7 @@ const CommentsContainer = ({className,logginedUserId}) => {
 
     const addCommentHandler = (value, parent = null, replyOnuser = null) =>{
         const newComment = {
-            _id:"10",
+            _id: Math.random().toString(),
             user:{
                 _id:"a",
                 name:"Venkat",
@@ -31,7 +31,8 @@ const CommentsContainer = ({className,logginedUserId}) => {
             post: "1",
             parent:parent,
             replyOnUser: replyOnuser,
-            createdAt: "2024-06-26T17:22:05.092+0000",
+            createdAt: new Date().toISOString(),
+            commentReplies: [],
         };
      setComments((curState)=>{
         return [newComment, ...curState];
