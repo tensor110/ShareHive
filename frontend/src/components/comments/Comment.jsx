@@ -107,7 +107,7 @@ Comment.propTypes = {
             )}
          </div>
        </div>
-
+  )}
  
 
 export default Comment
