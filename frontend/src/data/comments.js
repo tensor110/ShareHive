@@ -28,7 +28,23 @@ export const getCommentsData = async () =>{
             _id:"12",
             user:{
                 _id:"b",
-                name:"Venkat",
+
+                
+
+                name:"Maheswar",
+            },
+            desc: "Bekar project ",
+            post: "1",
+            parent:null,
+            replyOnUser: null,
+            createdAt: "2024-06-26T17:22:05.092+0000",
+        },
+        {
+            _id:"13",
+            user:{
+                _id:"b",
+                name:"Saswat",
+
             },
             desc: "its a nice project ",
             post: "1",
