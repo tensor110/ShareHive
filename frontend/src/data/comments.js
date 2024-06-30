@@ -16,9 +16,9 @@ export const getCommentsData = async () =>{
             _id:"11",
             user:{
                 _id:"b",
-                name:"Bibhu",
+                name:"Maheswar",
             },
-            desc: "Tu karke dika ",
+            desc: "Bekar project ",
             post: "1",
             parent:"10",
             replyOnUser: "a",
@@ -28,6 +28,9 @@ export const getCommentsData = async () =>{
             _id:"12",
             user:{
                 _id:"b",
+
+                
+
                 name:"Maheswar",
             },
             desc: "Bekar project ",
@@ -41,8 +44,9 @@ export const getCommentsData = async () =>{
             user:{
                 _id:"b",
                 name:"Saswat",
+
             },
-            desc: "Hmm intresting ",
+            desc: "its a nice project ",
             post: "1",
             parent:null,
             replyOnUser: null,

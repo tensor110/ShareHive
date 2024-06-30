@@ -52,6 +52,8 @@ const tagsData = [
 const ProjectDetailPage = () => {
   return (
     <MainLayout>
+
+     
       <section className='container mx-auto max-w-5xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start'>
         <div className='flex-1'>
           <BreadCrumbs data={breadCrumbsdata} />
@@ -76,6 +78,7 @@ const ProjectDetailPage = () => {
           <SocialShareButtons url={encodeURI(" ")} title={encodeURIComponent} />
         </div>
       </section>
+
     </MainLayout>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import PropTypes from 'prop-types'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
@@ -106,7 +107,7 @@ Comment.propTypes = {
             )}
          </div>
        </div>
-  )
-}
+
+ 
 
 export default Comment
