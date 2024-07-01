@@ -58,7 +58,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="/project/:id"
+                href="/projects"
                 className="nabtn text-4xl lg:text-lg transition-all  duration-500 "
               >
                 Projects
