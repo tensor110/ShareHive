@@ -1,7 +1,7 @@
 import User from "../models/User.js"
 
 
-export const  registerUser = async (req,res)=>{
+export const  registerUser = async (req,res,next)=>{
     try{
         const {name,email,password} = req.body;
         if(!name || !email || !password){
@@ -10,7 +10,8 @@ export const  registerUser = async (req,res)=>{
         //checks user exists or not
         let user = await User.findOne({email});
         if(user){
-            return res.status(400).json({message:"User already registered"})
+            // return res.status(400).json({message:"User already registered"})
+            throw new Error("User already registered")
         }
            
         //user create
@@ -31,7 +32,7 @@ export const  registerUser = async (req,res)=>{
 
     }catch (error){
         if (!res.headersSent) {
-            return res.status(500).json({message: "Something went wrong"});
+            next(error);
         }
     }
 }
