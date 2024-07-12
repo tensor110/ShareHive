@@ -2,8 +2,16 @@ import React from 'react'
 import {FaArrowRight} from "react-icons/fa"
 import { NavLink } from 'react-router-dom'
 import ProjectsCard from '../../../components/ProjectsCard.jsx'
-
-const Articles = () => {
+import { useSelector ,useDispatch} from "react-redux"
+import { changeCount } from '../../../store/actions/countActions.js'
+const Projects = () => {
+  const dispatch = useDispatch()
+  const count = useSelector(state=>state.count)
+  
+  
+  const countChangeHandler = (type) =>{
+    dispatch(changeCount(type))
+  }
   return (
     <section className='flex flex-col container mx-auto px-5 py-10'>
         <div className='flex flex-wrap md:gap-x-5 gap-y-5 pb-10'>
@@ -18,8 +26,10 @@ const Articles = () => {
           </NavLink>
           <FaArrowRight className='w-3 h-3' />
         </button>
+       
+          
     </section>
   )
 }
 
-export default Articles
+export default Projects

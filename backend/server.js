@@ -4,7 +4,8 @@ import connectDB from "./config/db.js"
 import cors from "cors";
 import { errorResponserHandler, invalidPathHandler } from "./middleware/errorHandler.js"
 
-import userRouters from "./routes/userRouters.js"
+import userRoutes from "./routes/userRoutes.js"
+import postRoutes from "./routes/postRoutes.js"
 
 dotenv.config()
 connectDB();
@@ -20,7 +21,8 @@ app.get("/", (req, res) => {
 });
 
 
-app.use('/api/users',userRouters)
+app.use('/api/users',userRoutes)
+app.use('/api/posts',postRoutes)
 
 app.use(invalidPathHandler)
 app.use(errorResponserHandler)
