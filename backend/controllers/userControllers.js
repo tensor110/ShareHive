@@ -1,11 +1,15 @@
 import User from "../models/User.js"
 
-
 export const  registerUser = async (req,res,next)=>{
     try{
-        const {name,email,password} = req.body;
-        if(!name || !email || !password){
+        console.log("HEllo")
+        const {name,email,password, confirmPassword} = req.body;
+        if(!name || !email || !password || !confirmPassword){
             return res.status(400).json({message: "Please fill all fields"}); 
+        }
+        // Check if password and confirmPassword match or not
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Passwords do not match" });
         }
         //checks user exists or not
         let user = await User.findOne({email});

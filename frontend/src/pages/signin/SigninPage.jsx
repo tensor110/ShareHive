@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthPage from '../../components/signin/AuthPaage'
+import AuthPage from '../../components/signin/AuthPage'
 import { images } from '../../constants'
 
 function SigninPage() {
