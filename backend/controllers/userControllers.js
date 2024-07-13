@@ -49,7 +49,7 @@ export const registerUser = async (req,res,next)=>{
 export const loginUser = async (req,res)=>{
     try{
         const {username, password} = req.body
-        const user = await UserModel.findOne({username})
+        const user = await User.findOne({username})
         const errorMsg = 'Email or password wrong'
         if(!user){
             return res.status(403)
@@ -60,12 +60,6 @@ export const loginUser = async (req,res)=>{
             return res.status(403)
                 .json({message: errorMsg, success: false})
         }
-
-        if (!process.env.JWT_SECRET) {
-            console.error("JWT_SECRET is not defined in environment variables");
-            return res.status(500).json({ message: "Internal server error", success: false });
-          }
-
         const jwtToken = jwt.sign(
             {username: user.username, _id: user._id},
             process.env.JWT_SECRET,
@@ -76,8 +70,8 @@ export const loginUser = async (req,res)=>{
                 message: 'Signin Successfully',
                 success: true,
                 jwtToken,
-                email,
-                username: user.username
+                username,
+                email: user.email
             })
     }
     catch(err){
