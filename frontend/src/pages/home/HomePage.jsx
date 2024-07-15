@@ -8,7 +8,6 @@ const HomePage = () => {
     <MainLayout>
       <Hero />
       <Projects />
-      
     </MainLayout>
   )
 }

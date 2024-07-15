@@ -6,6 +6,7 @@ import './index.css'
 import {NextUIProvider} from "@nextui-org/react";
 import {Provider} from "react-redux";
 import store from './store/index.js'
+import 'react-toastify/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <NextUIProvider>

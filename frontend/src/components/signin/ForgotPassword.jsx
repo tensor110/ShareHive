@@ -22,7 +22,7 @@ function ForgotPassword() {
             required
           />
         </div>
-        <NavLink to="/reset-password" className='w-full flex justify-center'>
+        <NavLink to="/reset-password" className="w-full flex justify-center">
           <button
             type="submit"
             className="w-full bg-primary rounded-md py-2 text-white font-semibold"
@@ -32,7 +32,7 @@ function ForgotPassword() {
         </NavLink>
       </form>
       <span>
-        Back to{' '}
+        Back to{" "}
         <a href="/signin" className="text-primary font-semibold cursor-pointer">
           Sign In
         </a>
